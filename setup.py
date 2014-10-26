@@ -12,6 +12,9 @@ setup(
     install_requires=[
         'Jinja2>=2.7.3',
         'Markdown>=2.4.1',
-        'PyYAML>=3.11'
+        'PyYAML>=3.11',
     ],
+    package_data={
+        'assembler': ['templates/*'],
+    }
 )
