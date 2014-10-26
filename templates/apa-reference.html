@@ -1,0 +1,28 @@
+{% if refs_show %}
+<h1>{{ refs_title }}</h1>
+
+<style>
+	.reference p {
+		padding-left: 40px;
+	}
+	.reference p:first-letter {
+		margin-left: -40px;
+	}
+</style>
+
+{% for r in refs %}
+
+<div class="reference">
+	{% if r.type == 'book' %}
+	<p>{% for a in r.authors %}{{ a }}{% if not loop.last %}, {% endif %}{% endfor %} ({{ r.year }}). <em>{{ r.title }}{% if r.subtitle %}: {{ r.subtitle }}{% endif %}</em>. {% if r.city %}{{ r.location }}: {% endif %}{{ r.publisher }}</p>
+
+	{% elif  r.type == 'webpage' %}
+	<p>{% for a in r.authors %}{{ a }}{% if not loop.last %}, {% endif %}{% endfor %} ({{ r.publication_date }}). <em>{{ r.title }}</em> Obtenido de: {{ r.url }}
+
+	{% else %}
+	<p><em>{{ r.title }}</em></p>
+	{% endif %}
+</div>
+
+{% endfor %}
+{% endif %}
