@@ -4,7 +4,7 @@ import markdown
 from jinja2 import Environment, PackageLoader
 import yaml
 
-class MDPretifier(object):
+class MDPrettifier(object):
 
     def __init__(self, project_root='markdwon'):
         self.project_root = project_root
